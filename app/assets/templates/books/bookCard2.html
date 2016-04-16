@@ -1,0 +1,18 @@
+<div class="bookCard well">
+  <a ng-href="#/books/{{book.id}}"><h4><strong>{{book.title}}</strong></h4></a>
+  <br>de {{book.author}}
+  <br>{{book.rate}} puntos
+  <br>Última vez leído en {{book.readingDates[0] | date:'MMM yyyy'}} - Cantidad de veces leído: {{book.readingDates.length}}
+   <a ng-href="" ng-click="addReadDate(book.id)"><i class="glyphicon glyphicon-time" title="Agregar el dia de hoy como ultima fecha de lectura"></i></a>
+   <a ng-href="" ng-click="addReadDate(book.id)"><i class="glyphicon glyphicon-calendar" title="Elegir ultima fecha de lectura"></i></a>
+  <br>En formato {{book.format.format}}
+  <div class="bookDescription">
+    <p>
+      {{book.description}}
+    </p>
+  </div>
+  <div class="actions">
+    <a ng-href="#/books/{{book.id}}/edit"><i class="glyphicon glyphicon-pencil" title="Editar"></i></a>
+    <a ng-href="" ng-click="removeBook(book)"><i class="glyphicon glyphicon-remove" title="Borrar"></i></a>
+  </div>
+</div>

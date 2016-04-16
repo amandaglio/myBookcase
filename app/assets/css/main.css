@@ -1,0 +1,64 @@
+.bookCard:hover .glyphicon {
+  display: inline-block;
+}
+
+.bookCard .glyphicon{
+  display: none;
+}
+.well {
+  background-image: none;
+  background-color: transparent;
+  border: 2px solid #1E3F7E;
+  border-radius: 5px;
+}
+
+.well h4 {
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+.separator {
+  margin-top: 15px;
+  margin-bottom: 20px
+}
+
+i {
+  cursor: pointer;
+}
+
+a {
+  cursor: pointer;
+}
+
+.actions i {
+  margin-top: 11px;
+  margin-bottom: 3px;
+}
+
+#toTop{
+	position: fixed;
+	bottom: 40px;
+	right: 40px;
+  height: 50px;
+  width: 50px;
+	cursor: pointer;
+	display: none;
+}
+#toTop .fa {margin-right: 5px;}
+
+#toTop.btn.btn-info {
+  background-image: none;
+  background-color: #337ab7;
+  opacity: 0.4;
+}
+#toTop.btn.btn-info:hover {
+  opacity: 1.0;
+}
+#toTop i {
+	line-height: 2.5;
+}
+
+.bookDescription {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

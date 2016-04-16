@@ -1,0 +1,18 @@
+<div class="book-card">
+  <strong>{{book.title}}</strong>, {{book.author}}
+  <br>{{book.rate}} puntos
+  <br>Cantidad de veces leído: {{book.readingDates.length}}
+  <br>En formato {{book.format.format}}
+  {{book.format}}
+  {{book.format.id}}
+  asdasd
+  <div class="book-description">
+    {{book.description}}
+  </div>
+  <div class="actions">
+    <a ng-href="#/books/{{book.id}}" class="btn btn-default">Ver</a>
+    <a ng-href="#/books/{{book.id}}/edit">Editar</a>
+    <a ng-href="#/books/{{book.id}}/remove">Borrar</a>
+  </div>
+</div>
+<p></p><p></p>

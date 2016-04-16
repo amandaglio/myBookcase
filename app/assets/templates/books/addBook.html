@@ -1,0 +1,63 @@
+<form name="addBookForm" ng-submit="addBook(book)" novalidate>
+  <div class="row">
+    <div class="col-md-3 col-md-offset-1 text-center">
+      <img src="app/views/Captura.PNG" />
+    </div>
+    <div class="col-md-7">
+      <fieldset class="form-group">
+        <label for="title">Titulo</label>
+        <input class="form-control" type="text" id="title" name="title" ng-model="book.title">
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="author">Autor</label>
+        <input class="form-control" type="text" id="author" name="author" ng-model="book.author">
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="publisher">Editorial</label>
+        <input class="form-control" type="text" id="publisher" name="publisher" ng-model="book.publisher">
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="releaseDate">Fecha publicacion</label>
+        <input ng-model="book.releaseDate" date-parser="dd/MM/yyyy" class="form-control" type="date" id="releaseDate" name="releaseDate">
+      </fieldset>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <fieldset class="form-group">
+        <label for="description">Descripcion</label>
+        <input class="form-control" type="textarea" id="description" name="description" ng-model="book.description">
+      </fieldset>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3  col-md-offset-1">
+      <fieldset class="form-group">
+        <label for="format">Formato</label>
+        <select ng-model="book.format.id" ng-options="val.id as val.format for val in bookFormat">
+          <option value="">Seleccionar</option>
+          <!-- <option value="1">Libro</option>
+          <option value="2">EBook</option> -->
+        </select>
+      </fieldset>
+    </div>
+    <div class="col-md-3">
+      <fieldset class="form-group">
+        <label for="rate">Calificacion</label>
+        <select ng-model="book.rate" ng-options="val.id as val.value for val in bookRate">
+          <option value="">Seleccionar</option>
+          <!-- <option value="5">5</option>
+          <option value="4">4</option>
+          <option value="3">3</option>
+          <option value="2">2</option>
+          <option value="1">1</option> -->
+        </select>
+      </fieldset>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-11  col-md-offset-1">
+      <button type="submit" class="btn btn-primary">Guardar</button>
+    </div>
+  </div>
+</form>

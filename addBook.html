@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="myBookcase">
+  <head>
+    <!--<link rel="stylesheet" type="text/css" href="bootstrap.min.css" />-->
+	<script type="text/javascript" src="js/jquery-1.12.1.min.js"></script>
+    <script type="text/javascript" src="data/booksEjemplo.json"></script>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+	 <script type="text/javascript">
+	 
+	function guardar(){
+	alert("entra");
+	var book = {name: 'prueba',
+				author: 'rowling'};
+		$http({
+		  method: 'POST',
+		  url: 'data/booksEjemplo.json',
+		  data: book
+		});
+	}
+	</script>
+  </head>
+  <body ng-controller="BookcaseController as bookcase">
+  <h3>Agregar libro</h3>
+  <form name="bookForm" ng-controller="BookController as bookCtrl" novalidate ng-submit="bookCtrl.addBook()">
+	Titulo: <input type="text" name="name" ng-model="bookCtrl.name">
+	Autor: <input type="text" name="author"  ng-model="bookCtrl.author">
+	<input type="text" name="releaseDate">
+	<input type="text" name="lastReadDate">
+	<input type="text" name="rate">
+	<input type="textarea" name="notes">
+	<input type="text" name="img">
+	Veces Leído: <input type="number" name="readed" ng-model="bookCtrl.readed">
+	<input type="button" value="agregar" onclick="guardar()">
+  </form>
+  <div ng-repeat="book in bookcase.books">
+		<strong>{{book.name}}</strong>, {{book.author}}
+		<ng-pluralize count="book.readed" when="{
+												0:'Nunca lo leí',
+												1:'Lo leí 1 vez',
+												'NaN': 'Lo estoy leyendo',
+												other:'Lo leí {{book.readed}} veces'}"> 
+		</ng-pluralize>
+	</div>
+	
+  </body>
+</html>
+
+
+	
