@@ -1,10 +1,11 @@
 angular.module('myBookcase')
-.controller('AddBookController',function($scope,Book,BookUtils){
+.controller('AddBookController',function($scope,$location,Book,BookUtils){
   $scope.book=new Book();
   $scope.bookFormat = BookUtils.bookFormat;
   $scope.bookRate = BookUtils.bookRate;
-  // $scope.book.releaseDate = new Date();
   $scope.addBook=function(book){
-    book.$save();
+    book.$save().then(function(data){
+      $location.path("/books/" + data.id);
+    });
   };
 });

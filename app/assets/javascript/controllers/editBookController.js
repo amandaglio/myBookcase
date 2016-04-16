@@ -5,6 +5,8 @@ angular.module('myBookcase')
   $scope.bookRate = BookUtils.bookRate;
 
   $scope.addBook=function(book){
-    book.$update();
+    book.$update().then(function(data){
+      $location.path("/books/" + data.id);
+    });
   };
 });
