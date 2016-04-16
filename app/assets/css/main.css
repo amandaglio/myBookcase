@@ -1,14 +1,14 @@
 .bookCard:hover .glyphicon {
-  display: inline-block;
+  /*display: inline-block;*/
 }
 
 .bookCard .glyphicon{
-  display: none;
+  /*display: none;*/
 }
 .well {
   background-image: none;
   background-color: transparent;
-  border: 2px solid #1E3F7E;
+  border: 2px solid #26A65B;
   border-radius: 5px;
 }
 
@@ -28,11 +28,17 @@ i {
 
 a {
   cursor: pointer;
+  color: #a62631;
 }
 
 .actions i {
   margin-top: 11px;
   margin-bottom: 3px;
+}
+
+.navbar-default{
+  background-image: none;
+  background-color: #26A65B;
 }
 
 #toTop{
@@ -48,7 +54,8 @@ a {
 
 #toTop.btn.btn-info {
   background-image: none;
-  background-color: #337ab7;
+  background-color: #26A65B;
+  border-color: #b6eecd;
   opacity: 0.4;
 }
 #toTop.btn.btn-info:hover {
