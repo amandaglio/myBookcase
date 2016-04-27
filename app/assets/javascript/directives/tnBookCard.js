@@ -1,17 +1,21 @@
-angular.module('myBookcase').directive('tnBookCard',function(){
+angular.module('myBookcase').directive('tnBookCard',function($http,Book){
   return  {
     restrict: 'E',
     templateUrl:'app/assets/templates/books/bookCard2.html',
     scope: {
       book: '='
     },
-    controller: function ($scope, $element,$http,Book){
+    link: function ($scope, $element,$attr){
       $scope.removeBook=function(book){
-        Book.remove(book);
+        Book.remove(book).$promise.then(function(){
+          $element.remove();
+        });
       };
-      $scope.addReadDate=function(id){
-        $http.put('http://localhost:8080/api/books/addReadDate', id );
-      }
+      $scope.addReadDate=function(book){
+        $http.put('http://localhost:8080/api/books/addReadDate', book.id ).then(function(bookUpdated){
+          $scope.book.readingDates = bookUpdated.data.readingDates;
+        });
+      };
     }
   }
 });

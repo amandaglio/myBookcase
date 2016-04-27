@@ -18,7 +18,12 @@
       </fieldset>
       <fieldset class="form-group">
         <label for="releaseDate">Fecha publicacion</label>
-        <input ng-model="book.releaseDate" date-parser="dd/MM/yyyy" class="form-control" type="date" id="releaseDate" name="releaseDate">
+        <div class="input-group date">
+          <input class="datepicker form-control" ng-model="book.releaseDate">
+          <div class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </div>
+        </div>
       </fieldset>
     </div>
   </div>
@@ -36,8 +41,6 @@
         <label for="format">Formato</label>
         <select ng-model="book.format.id" ng-options="val.id as val.format for val in bookFormat">
           <option value="">Seleccionar</option>
-          <!-- <option value="1">Libro</option>
-          <option value="2">EBook</option> -->
         </select>
       </fieldset>
     </div>
@@ -46,18 +49,31 @@
         <label for="rate">Calificacion</label>
         <select ng-model="book.rate" ng-options="val.id as val.value for val in bookRate">
           <option value="">Seleccionar</option>
-          <!-- <option value="5">5</option>
-          <option value="4">4</option>
-          <option value="3">3</option>
-          <option value="2">2</option>
-          <option value="1">1</option> -->
         </select>
       </fieldset>
     </div>
   </div>
   <div class="row">
+    <div class="col-md-3 col-md-offset-1">
+      <label for="readingsDate">Fechas de lectura</label>
+      <div ng-repeat="date in book.readingDates track by $index">
+        {{date | date:"MMMM yyyy"}} <a ng-href="" ng-click="removeReadDate(book, date)"><i class="glyphicon glyphicon-remove" title="Borrar"></i></a>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="input-group date">
+        <input class="datepicker form-control" id="readingDateToAdd" ng-model="readingDateToAdd">
+        <div class="input-group-addon">
+          <span class="glyphicon glyphicon-calendar"></span>
+        </div>
+      </div>
+          <input type="button" ng-click="addReadDate(book,readingDateToAdd)" class="btn btn-default btn-search" value="Agregar fecha"></input>
+    </div>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-md-11  col-md-offset-1">
-      <button type="submit" class="btn btn-primary">Guardar</button>
+      <button type="submit" class="btn btn-default btn-search">Guardar</button>
     </div>
   </div>
 </form>

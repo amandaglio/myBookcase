@@ -1,20 +1,36 @@
 <div class="row separator">
   <div class="col-md-8 col-md-offset-2">
     <div class="input-group">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Buscar</button>
-      </span>
       <input class="form-control" type="text" id="search" name="search" ng-model="search.title"/>
+      <span class="input-group-btn">
+        <button class="btn btn-default btn-search" id="btnSearch" type="button">Buscar</button>
+      </span>
     </div>
   </div>
 </div>
 <div class="row">
   <div class="col-md-2">
-    Categorias
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Categorias
+      </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Autores
+        </div>
+      </div>
   </div>
   <div class="col-md-8">
     <div ng-repeat="book in books | orderBy: 'title' | filter : search">
       <tn-book-card book="book"></tn-book-card>
     </div>
+  </div>
+  <div class="col-md-2">
+    <div>
+      <span><i class="glyphicon glyphicon-th-list" ng-click="shortView()"></i></span>
+      <!-- <button id="viewBtn" class="btn btn-info" ng-click="shortView()">vista</button> -->
+    </div>
+    {{books.length}} libros en la estanteria
   </div>
 </div>
